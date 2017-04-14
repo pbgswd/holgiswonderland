@@ -9,9 +9,10 @@ clip3 = VideoFileClip('DSC_0003.AVI').subclip(4,8)
 clip4 = VideoFileClip('DSC_0004.AVI').subclip(3,16)
 clip5 = VideoFileClip('DSC_0005.AVI').subclip(3,16)
 clip6 = VideoFileClip('DSC_0006.AVI').subclip(3,7)
-clip7 = VideoFileClip('DSC_0007.AVI').subclip(2,25)
-clip8 = VideoFileClip('DSC_0008.AVI').subclip(11,16)
-clip9 = VideoFileClip('DSC_0009.AVI').subclip(4,10)
+clip71 = VideoFileClip('DSC_0007.AVI').subclip(2,9)
+clip72 = VideoFileClip('DSC_0007.AVI').subclip(16,32)
+clip8  = VideoFileClip('DSC_0008.AVI').subclip(11,16)
+clip9  = VideoFileClip('DSC_0009.AVI').subclip(4,10)
 clip10 = VideoFileClip('DSC_0010.AVI').subclip(4,7)
 clip11 = VideoFileClip('DSC_0011.AVI').subclip(9,15)
 clip12 = VideoFileClip('DSC_0012.AVI').subclip(4,13)
@@ -25,10 +26,6 @@ clip19 = VideoFileClip('DSC_0019.AVI').subclip(8,20)
 clip20 = VideoFileClip('DSC_0020.AVI').subclip(11,14)
 clip21 = VideoFileClip('DSC_0021.AVI').subclip(31,44)
 
-
-#DSC_0005.AVI DSC_0006.AVI DSC_0007.AVI DSC_0008.AVI DSC_0009.AVI DSC_0010.AVI DSC_0011.AVI DSC_0012.AVI
-#DSC_0013.AVI DSC_0014.AVI DSC_0015.AVI DSC_0016.AVI DSC_0017.AVI DSC_0018.AVI DSC_0019.AVI  DSC_0020.AVI  DSC_0021.AVI
-
 content = concatenate_videoclips([intro.fadein(1).crossfadeout(1),
                                   clip1.crossfadein(1),
                                   clip2.crossfadein(0.5),
@@ -36,7 +33,8 @@ content = concatenate_videoclips([intro.fadein(1).crossfadeout(1),
                                   clip4.crossfadein(0.5),
                                   clip5.crossfadein(0.5),
                                   clip6.crossfadein(0.5),
-                                  clip7.crossfadein(0.5),
+                                  clip71.crossfadein(0.5),
+                                  clip72.crossfadein(0.5),                                  
                                   clip8.crossfadein(0.5),
                                   clip9.crossfadein(0.5),
                                   clip10.crossfadein(0.5),
@@ -47,10 +45,29 @@ content = concatenate_videoclips([intro.fadein(1).crossfadeout(1),
                                   clip15.crossfadein(0.5),
                                   clip16.crossfadein(0.5),
                                   clip17.crossfadein(0.5),
-                                  clip18.crossfadein(0.5),
-                                  intro.crossfadein(0.5).fadeout(1)],
+                                  clip18.crossfadein(0.5)],
                                   padding=-1, method="compose"                                  
                                   )
-final = content.set_audio(audioclip)
-#Music: http://www.bensound.com
+
+video_credit  = TextClip("Video: Peter Gordon",fontsize=30, font="DejaVu-Sans-Bold", kerning=3, color='black')
+vcredit       = video_credit.set_duration(2)
+
+music_credit  = TextClip("Music: http://www.bensound.com", fontsize=30, font="DejaVu-Sans-Bold", kerning=3, color='black')
+mcredit       = music_credit.set_duration(2)
+
+software_credit = TextClip("Made with MoviePy", fontsize=30, font="DejaVu-Sans-Bold", kerning=3, color='black')
+scredit         = software_credit.set_duration(2)
+
+credits = concatenate_videoclips([vcredit,
+                                  mcredit.crossfadein(0.5),
+                                  scredit.crossfadein(0.5)],
+                                  padding=-1, method="compose")
+
+end = concatenate_videoclips([intro, intro])
+
+allcredits = CompositeVideoClip([end, credits.set_pos(('center','bottom'))])
+
+video      = concatenate_videoclips([content, allcredits])
+final      = video.set_audio(audioclip)
+
 final.write_videofile("holgis_wonderland.avi",fps=24, codec='libx264')
