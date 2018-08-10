@@ -1,34 +1,8 @@
 # README #
 
-holgi's wonderland videos, time to show them.
-Peter
+This repo is for a MoviePy script and demonstrates its abilities.
+To use, you can copy or clone and modify to your needs.
+I have not included the AVI files due to their size. 
+You can see the final product at https://flic.kr/p/TQQzjD
 
-
-
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Have fun with MoviePy and the Python language. 
