@@ -49,11 +49,7 @@ content = concatenate_videoclips([intro.fadein(1).crossfadeout(1),
                                   padding=-1, method="compose"                                  
                                   )
 
-video_credit  = TextClip("Video: Peter Gordon",fontsize=30, font="DejaVu-Sans-Bold", kerning=3, color='black')
-vcredit       = video_credit.set_duration(2)
 
-music_credit  = TextClip("Music: http://www.bensound.com", fontsize=30, font="DejaVu-Sans-Bold", kerning=3, color='black')
-mcredit       = music_credit.set_duration(2)
 
 software_credit = TextClip("Made with MoviePy", fontsize=30, font="DejaVu-Sans-Bold", kerning=3, color='black')
 scredit         = software_credit.set_duration(2)
