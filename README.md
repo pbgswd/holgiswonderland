@@ -2,6 +2,8 @@
 
 This repo is for a MoviePy script and demonstrates its abilities.
 
+Done for fun only.
+
 To use, you can copy or clone and modify to your needs.
 
 I have not included the AVI files due to their size. 
